@@ -1,29 +1,28 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+import React, { Component } from 'react';
+import {
+  StyleSheet, Text, View, Button,
+} from 'react-native';
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+export default class App extends Component {
+  state = {
+    color: 'red',
+  };
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+  setColor = () => {
+    this.setState({ color: 'blue' });
+  };
 
-type Props = {};
-export default class App extends Component<Props> {
   render() {
+    const { color } = this.state;
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <Text style={styles.welcome} testID="welcome">
+          Welcome to React Native!
+        </Text>
+        <Text style={styles.instructions} testID="instructions">
+          To get started, edit App.js
+        </Text>
+        <Button title="Start" onPress={this.setColor} color={color} testID="button-start" />
       </View>
     );
   }
@@ -40,10 +39,5 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
   },
 });
