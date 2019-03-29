@@ -17,10 +17,10 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome} testID="welcome">
-          Welcome to React Native!
+          React Native + Detox
         </Text>
         <Text style={styles.instructions} testID="instructions">
-          To get started, edit App.js
+          Write tests in the e2e folder.
         </Text>
         <Button title="Start" onPress={this.setColor} color={color} testID="button-start" />
       </View>
@@ -37,6 +37,12 @@ const styles = StyleSheet.create({
   },
   welcome: {
     fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    fontSize: 14,
     textAlign: 'center',
     margin: 10,
   },
