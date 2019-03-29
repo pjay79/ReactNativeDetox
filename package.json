@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "test:e2e": "detox test -c ios.sim.debug",
+    "test:e2e:ios": "detox test -c ios.sim.debug",
+    "test:e2e:android": "detox test -c android.emu.debug",
     "test:e2e:build": "detox build",
     "lint": "eslint ."
   },
