@@ -1,10 +1,6 @@
 /* eslint-env detox/detox, jest */
 
 describe('Example', () => {
-  beforeAll(async () => {
-    await device.reloadReactNative();
-  });
-
   it('should have welcome screen', async () => {
     await expect(element(by.id('welcome'))).toBeVisible();
   });
@@ -17,7 +13,11 @@ describe('Example', () => {
     await expect(element(by.id('button-start'))).toBeVisible();
   });
 
-  it('should tap start button', async () => {
+  it('should tap start button that turns into color blue', async () => {
     await element(by.id('button-start')).tap();
+  });
+
+  afterAll(async () => {
+    await device.reloadReactNative();
   });
 });
