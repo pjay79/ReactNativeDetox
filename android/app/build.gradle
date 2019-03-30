@@ -101,6 +101,10 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.2'
+    }
+
     defaultConfig {
         applicationId "com.awsapp"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -144,6 +148,9 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     implementation "com.facebook.react:react-native:+"  // From node_modules
+    implementation('com.squareup.okhttp3:okhttp:3.12.1') { force = true }
+    implementation('com.squareup.okio:okio:1.15.0') { force = true }
+    implementation('com.google.code.findbugs:jsr305:3.0.2') { force = true}
     androidTestImplementation(project(path: ":detox"))
     androidTestImplementation 'junit:junit:4.12'
 }
